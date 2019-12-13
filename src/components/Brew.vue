@@ -9,12 +9,16 @@
     <br />
     <!-- /.row -->
     <div class="row">
-      <div class="col-6">
+      <div class="col-4">
         <!-- use BrewList -->
-        <BrewList v-bind:brews="brews" />
+        <BrewList
+          @mouse-over-brew="mouseOverBrew"
+          @mouse-left-brew="mouseLeftBrew"
+          v-bind:brews="brews"
+        />
       </div>
-      <div class="col-6">
-        <Map v-bind:brews="brews"/>
+      <div class="col-8">
+        <Map v-bind:brews="brews" />
       </div>
     </div>
     <!-- /.row -->
@@ -47,16 +51,29 @@ export default {
   },
   data() {
     return {
-      brews: []
+      brews: [],
+      normalIcon: [25, 25],
+      largeIcon: [80, 80]
     };
   },
   mounted() {
-    axios
-      .get("https://api.openbrewerydb.org/breweries")
-      .then(response => 
-      (this.brews = response.data.filter(response =>
-      response.state == 'Arizona'))
-      );
+    axios.get("https://api.openbrewerydb.org/breweries").then(
+      response =>
+        (this.brews = response.data
+          .filter(response => response.state == "Arizona")
+          .map(response => {
+            response.iconSize = this.normalIcon;
+            return response;
+          }))
+    );
+  },
+  methods: {
+    mouseOverBrew: function(index) {
+      this.brews[index].iconSize = this.largeIcon;
+    },
+    mouseLeftBrew: function(index) {
+      this.brews[index].iconSize = this.normalIcon;
+    }
   }
 };
 </script>
