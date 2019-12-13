@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-12">
         <h1 class="text-center text-info">Breweries List</h1>
@@ -14,7 +14,7 @@
         <BrewList v-bind:brews="brews" />
       </div>
       <div class="col-6">
-        <Map />
+        <Map v-bind:brews="brews"/>
       </div>
     </div>
     <!-- /.row -->
@@ -53,7 +53,10 @@ export default {
   mounted() {
     axios
       .get("https://api.openbrewerydb.org/breweries")
-      .then(response => (this.brews = response.data));
+      .then(response => 
+      (this.brews = response.data.filter(response =>
+      response.state == 'Arizona'))
+      );
   }
 };
 </script>
