@@ -42,7 +42,7 @@ export default {
       currentZoom: 7,
       url:
         // do not make any commit to a public repo with YOUR OWN API KEY inside!
-        "https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=10fdfaef484b4772bfa68b634b3a3853",
+        "https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=",
       attribution:
         'Maps &copy; <a href="https://www.thunderforest.com/">Thunderforest</a>, Data &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       marker: L.latLng(22.352, 114.17),
