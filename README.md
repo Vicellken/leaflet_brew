@@ -1,6 +1,12 @@
-# brew
+# leaflet_brew
 
-##### integrate axios async data with leaflet map in VueJS
+##### integrate axios async data with leaflet map in VueJS + realtime brewList API
+
+<br>
+
+open directory access 2020/05/21
+
+<br>
 
 ## Project setup
 ```
