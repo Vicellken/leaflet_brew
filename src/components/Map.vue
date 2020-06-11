@@ -8,10 +8,7 @@
         v-for="(brew, index) in brews"
         :lat-lng="latLng(brew.latitude, brew.longitude)"
       >
-      <l-icon
-      :icon-size="brew.iconSize"
-      :icon-url="icon">
-      </l-icon>
+        <l-icon :icon-size="brew.iconSize" :icon-url="icon"></l-icon>
       </l-marker>
     </l-map>
   </div>
@@ -19,7 +16,7 @@
 
 <script>
 import { LMap, LTileLayer, LMarker, LIcon } from "vue2-leaflet";
-import logo from '../assets/logo.png'
+import logo from "../assets/logo.png";
 
 export default {
   name: "Map",

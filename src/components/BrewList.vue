@@ -9,7 +9,6 @@
         v-for="(brew, index) in brews"
         class="list-group-item"
       >{{brew.name}}, {{brew.state}}</li>
-      <!-- <li v-for="brew in brews" :key="brew.id" class="list-group-item">{{brew.name}}, {{brew.state}}</li> -->
     </ul>
   </div>
 </template>
